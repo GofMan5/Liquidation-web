@@ -14,7 +14,7 @@ export class BalancePaymentStrategy implements PaymentStrategy {
   description = "Списание средств с вашего внутреннего счета";
   icon = Wallet;
 
-  async process(amount: number): Promise<{ success: boolean; message: string; transactionId?: string }> {
+  async process(_amount: number): Promise<{ success: boolean; message: string; transactionId?: string }> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const randomSuccess = Math.random() > 0.1; // 90% success rate
@@ -43,7 +43,7 @@ export class ExternalPaymentStrategy implements PaymentStrategy {
     this.providerUrl = providerUrl;
   }
 
-  async process(amount: number): Promise<{ success: boolean; message: string; transactionId?: string }> {
+  async process(_amount: number): Promise<{ success: boolean; message: string; transactionId?: string }> {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ 

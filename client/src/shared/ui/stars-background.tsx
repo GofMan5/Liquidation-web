@@ -4,7 +4,6 @@ import React, {
   useState,
   useEffect,
   useRef,
-  RefObject,
   useCallback,
 } from "react";
 
@@ -85,9 +84,10 @@ export const StarsBackground = ({
       resizeObserver.observe(canvasRef.current);
     }
 
+    const currentCanvas = canvasRef.current;
     return () => {
-      if (canvasRef.current) {
-        resizeObserver.unobserve(canvasRef.current);
+      if (currentCanvas) {
+        resizeObserver.unobserve(currentCanvas);
       }
     };
   }, [

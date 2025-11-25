@@ -1,4 +1,4 @@
-import { Product, PricingConfig } from "@/entities/product/model/types";
+import { Product } from "@/entities/product/model/types";
 
 export const SUBSCRIPTION_DAYS = [1, 3, 7, 14, 30, 60, 90, 180, 365];
 

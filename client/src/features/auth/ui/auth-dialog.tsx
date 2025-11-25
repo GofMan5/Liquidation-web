@@ -141,7 +141,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     }
   }
 
-  async function onForgotPassword(_data: z.infer<typeof forgotPasswordSchema>) {
+  function onForgotPassword() {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)

@@ -1,15 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
 
 export default function HeroIllustration() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    setIsMounted(true);
-  }, []);
 
   const nodes = [0, 72, 144, 216, 288].map((angle) => ({
     cx: (400 + Math.cos((angle * Math.PI) / 180) * 220).toFixed(3),

@@ -1,4 +1,4 @@
-import { Youtube, Send, MessageCircle } from "lucide-react";
+import { Youtube, Send } from "lucide-react";
 import { VkIcon } from "@/shared/ui/custom-icons";
 import { NavigationItem, SocialLink } from "@/shared/model/navigation-types";
 

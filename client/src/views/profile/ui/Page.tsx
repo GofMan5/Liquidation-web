@@ -10,7 +10,6 @@ import {
   Mail, 
   Key, 
   Laptop, 
-  Clock,
   Calendar,
   History,
   Eye,
