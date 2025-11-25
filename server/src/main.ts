@@ -38,7 +38,7 @@ async function bootstrap() {
   const port = configService.get<number>('port', 4000);
   await app.listen(port);
   
-  const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
+  const logger = app.get(WINSTON_MODULE_NEST_PROVIDER) as { log: (message: string, context?: string) => void };
   logger.log(`🚀 Server running on http://localhost:${port}`, 'Bootstrap');
 }
 void bootstrap();

@@ -7,14 +7,16 @@ const { combine, timestamp, printf, colorize, errors } = winston.format;
 // Custom format for console output
 const consoleFormat = printf((info) => {
   const { level, message, timestamp, context, stack, method, url, statusCode, duration } = info;
-  const ctx = context ? `[${String(context)}]` : '';
-  const stackTrace = stack ? `\n${String(stack)}` : '';
+  const ctx = context ? `[${typeof context === 'string' ? context : JSON.stringify(context)}]` : '';
+  const stackTrace = stack ? `\n${typeof stack === 'string' ? stack : JSON.stringify(stack)}` : '';
   
   // Special format for HTTP requests
   if (method && url && typeof statusCode === 'number') {
     const statusColor = statusCode >= 500 ? '\x1b[31m' : statusCode >= 400 ? '\x1b[33m' : '\x1b[32m';
     const reset = '\x1b[0m';
-    return `${String(timestamp)} ${level} ${ctx} ${String(method)} ${String(url)} ${statusColor}${statusCode}${reset} ${String(duration)}ms`;
+    const methodStr = typeof method === 'string' ? method : JSON.stringify(method);
+    const urlStr = typeof url === 'string' ? url : JSON.stringify(url);
+    return `${String(timestamp)} ${level} ${ctx} ${methodStr} ${urlStr} ${statusColor}${statusCode}${reset} ${String(duration)}ms`;
   }
   
   return `${String(timestamp)} ${level} ${ctx} ${String(message)}${stackTrace}`;

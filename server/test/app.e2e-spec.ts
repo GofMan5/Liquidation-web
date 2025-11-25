@@ -32,7 +32,7 @@ describe('AppController (e2e)', () => {
       return request(app.getHttpServer())
         .get('/health')
         .expect(200)
-        .expect((res) => {
+        .expect((res: { body: { status: string; timestamp: string; uptime: number } }) => {
           expect(res.body.status).toBe('ok');
           expect(res.body.timestamp).toBeDefined();
           expect(typeof res.body.uptime).toBe('number');
@@ -43,7 +43,7 @@ describe('AppController (e2e)', () => {
       return request(app.getHttpServer())
         .get('/health/ready')
         .expect(200)
-        .expect((res) => {
+        .expect((res: { body: { status: string; timestamp: string; checks: { database: string } } }) => {
           expect(res.body.status).toBe('ready');
           expect(res.body.timestamp).toBeDefined();
           expect(res.body.checks.database).toBe('ok');
