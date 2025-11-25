@@ -1,22 +1,16 @@
 "use client";
 
-import dynamic from 'next/dynamic';
+import { memo } from "react";
 import BackgroundGrid from "@/shared/ui/background-grid";
+import { StarsBackgroundCSS } from "@/shared/ui/stars-background-css";
+import { ShootingStarsCSS } from "@/shared/ui/shooting-stars-css";
 
-const ShootingStars = dynamic(() => import("@/shared/ui/shooting-stars").then(mod => mod.ShootingStars), {
-  ssr: false
-});
-
-const StarsBackground = dynamic(() => import("@/shared/ui/stars-background").then(mod => mod.StarsBackground), {
-  ssr: false
-});
-
-export function PageBackground() {
+export const PageBackground = memo(function PageBackground() {
   return (
     <div className="fixed inset-0 z-[-1]">
       <BackgroundGrid />
-      <ShootingStars />
-      <StarsBackground />
+      <ShootingStarsCSS />
+      <StarsBackgroundCSS />
     </div>
   );
-}
+});

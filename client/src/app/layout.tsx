@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/features/theme/model/theme-provider";
 import { AuthProvider } from "@/features/auth/model/auth-provider";
 import { CartProvider } from "@/entities/cart/model/cart-provider";
 import { CartSheet } from "@/features/cart/ui/cart-sheet";
+import { ErrorBoundary } from "@/shared/ui/error-boundary";
 
 const montserrat = Montserrat({ 
   subsets: ["latin", "cyrillic"],
@@ -75,7 +76,9 @@ export default function RootLayout({
             <CartProvider>
               <Header />
               <main className="flex-1 pt-16">
-                {children}
+                <ErrorBoundary>
+                  {children}
+                </ErrorBoundary>
               </main>
               <Footer />
               <CartSheet />

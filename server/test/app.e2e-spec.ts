@@ -16,10 +16,38 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
+  afterEach(async () => {
+    await app.close();
+  });
+
   it('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
       .expect('Hello World!');
+  });
+
+  describe('/health', () => {
+    it('/health (GET) should return ok status', () => {
+      return request(app.getHttpServer())
+        .get('/health')
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.status).toBe('ok');
+          expect(res.body.timestamp).toBeDefined();
+          expect(typeof res.body.uptime).toBe('number');
+        });
+    });
+
+    it('/health/ready (GET) should return ready status', () => {
+      return request(app.getHttpServer())
+        .get('/health/ready')
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.status).toBe('ready');
+          expect(res.body.timestamp).toBeDefined();
+          expect(res.body.checks.database).toBe('ok');
+        });
+    });
   });
 });

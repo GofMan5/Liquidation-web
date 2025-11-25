@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { CartItem } from "@/entities/cart/model/types";
 import { Product } from "@/entities/product/model/types";
 import { calculateProductPrice } from "@/shared/lib/price-calculator";
@@ -46,7 +46,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [items, isMounted]);
 
-  const addItem = (product: Product, days: number) => {
+  const addItem = useCallback((product: Product, days: number) => {
     setItems((prev) => {
       const itemId = `${product.id}-${days}`;
       const existingItem = prev.find((item) => item.id === itemId);
@@ -61,19 +61,19 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { id: itemId, product, days, price, quantity: 1 }];
     });
     setIsOpen(true);
-  };
+  }, []);
 
-  const removeItem = (itemId: string) => {
+  const removeItem = useCallback((itemId: string) => {
     setItems((prev) => prev.filter((item) => item.id !== itemId));
-  };
+  }, []);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([]);
-  };
+  }, []);
 
-  const toggleCart = () => setIsOpen((prev) => !prev);
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
+  const toggleCart = useCallback(() => setIsOpen((prev) => !prev), []);
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);

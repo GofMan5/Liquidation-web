@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Product } from "@/entities/product/model/types";
 import { useCart } from "@/entities/cart/model/cart-provider";
 import { calculateProductPrice, SUBSCRIPTION_DAYS, formatPrice } from "@/shared/lib/price-calculator";
@@ -65,7 +65,7 @@ export function ProductDetailsDialog({ product, trigger }: ProductDetailsDialogP
   const [newDeviceName, setNewDeviceName] = useState<string>("");
 
   const days = parseInt(selectedDays);
-  const currentPrice = calculateProductPrice(product, days);
+  const currentPrice = useMemo(() => calculateProductPrice(product, days), [product, days]);
   const hasImages = product.images && product.images.length > 0;
 
   const handleAddToCart = () => {

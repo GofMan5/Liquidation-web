@@ -1,4 +1,5 @@
 import { Module, Global } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
 import * as schema from './schema';
@@ -10,8 +11,10 @@ export const DATABASE_CONNECTION = 'DATABASE_CONNECTION';
     providers: [
         {
             provide: DATABASE_CONNECTION,
-            useFactory: () => {
-                const sqlite = new Database('sqlite.db');
+            inject: [ConfigService],
+            useFactory: (configService: ConfigService) => {
+                const dbPath = configService.get<string>('database.path', 'sqlite.db');
+                const sqlite = new Database(dbPath);
                 return drizzle(sqlite, { schema });
             },
         },

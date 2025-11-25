@@ -163,3 +163,106 @@
     background-attachment: fixed;
   }
 }
+
+/* CSS Stars Background */
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+}
+
+.stars-layer-1 {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 90px 40px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 160px 120px, white, transparent);
+  background-size: 200px 200px;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.stars-layer-2 {
+  background-image: 
+    radial-gradient(1px 1px at 75px 45px, white, transparent),
+    radial-gradient(1px 1px at 100px 100px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 199px 150px, white, transparent),
+    radial-gradient(1px 1px at 20px 180px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 150px 25px, white, transparent);
+  background-size: 250px 250px;
+  animation: twinkle 5s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+.stars-layer-3 {
+  background-image: 
+    radial-gradient(1px 1px at 10px 10px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 150px 50px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 80px 130px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 180px 180px, rgba(255,255,255,0.5), transparent);
+  background-size: 300px 300px;
+  animation: twinkle 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* CSS Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2EB9DF, #48C4B9);
+  border-radius: 50%;
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.shooting-star-1 {
+  top: 10%;
+  left: 20%;
+  animation: shoot 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.shooting-star-2 {
+  top: 30%;
+  left: 60%;
+  animation: shoot 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.shooting-star-3 {
+  top: 50%;
+  left: 40%;
+  animation: shoot 5s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translateX(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+    transform: rotate(45deg) translateX(300px);
+  }
+  25% {
+    opacity: 0;
+    transform: rotate(45deg) translateX(400px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translateX(400px);
+  }
+}

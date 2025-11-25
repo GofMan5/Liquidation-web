@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Eye, ArrowRight } from "lucide-react";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
@@ -19,7 +20,7 @@ interface ProductCardProps {
   variant?: 'home' | 'catalog';
 }
 
-export function ProductCard({ product, className, variant = 'catalog' }: ProductCardProps) {
+export const ProductCard = memo(function ProductCard({ product, className, variant = 'catalog' }: ProductCardProps) {
   const Icon = icons[product.iconName];
 
   return (
@@ -72,4 +73,4 @@ export function ProductCard({ product, className, variant = 'catalog' }: Product
         </div>
     </SpotlightCard>
   );
-}
+});

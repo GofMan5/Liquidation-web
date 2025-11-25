@@ -1,0 +1,2 @@
+// Domain interfaces exports
+export {};

@@ -1,11 +1,12 @@
 "use client";
 
+import { memo } from "react";
 import Link from "next/link";
 import { Separator } from "@/shared/ui/separator";
 import { Logo } from "@/shared/ui/logo";
 import { navigationService } from "@/shared/lib/navigation-service";
 
-export function Footer() {
+export const Footer = memo(function Footer() {
   const socialLinks = navigationService.getFooterSocialLinks();
   const footerLinks = navigationService.getFooterLinks();
 
@@ -53,4 +54,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+});

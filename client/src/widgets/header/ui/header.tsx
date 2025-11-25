@@ -1,10 +1,10 @@
 "use client";
 
+import { memo, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/shared/ui/logo";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationService } from "@/shared/lib/navigation-service";
 // import { ThemeToggle } from "@/features/theme/ui/theme-toggle";
@@ -21,7 +21,7 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui/dropdown-menu";
 
-export function Header() {
+export const Header = memo(function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const headerItems = navigationService.getHeaderItems();
@@ -181,4 +181,4 @@ export function Header() {
       <AuthDialog open={isAuthOpen} onOpenChange={setIsAuthOpen} />
     </header>
   );
-}
+});
