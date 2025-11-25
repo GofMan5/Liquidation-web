@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
-import { ValidationPipe } from '@nestjs/common';
+import { LoggerService, ValidationPipe } from '@nestjs/common';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
@@ -38,7 +38,7 @@ async function bootstrap() {
   const port = configService.get<number>('port', 4000);
   await app.listen(port);
   
-  const logger = app.get(WINSTON_MODULE_NEST_PROVIDER) as { log: (message: string, context?: string) => void };
+  const logger = app.get<LoggerService>(WINSTON_MODULE_NEST_PROVIDER);
   logger.log(`🚀 Server running on http://localhost:${port}`, 'Bootstrap');
 }
 void bootstrap();
