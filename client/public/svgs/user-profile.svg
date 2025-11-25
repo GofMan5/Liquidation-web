@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarBg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F3F4F6" />
+      <stop offset="100%" stop-color="#E5E7EB" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="256" y1="100" x2="256" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+    <mask id="circleMask">
+      <circle cx="256" cy="256" r="240" fill="white" />
+    </mask>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <!-- Outer Circle Frame -->
+    <circle cx="256" cy="256" r="240" fill="url(#avatarBg)" stroke="#FFFFFF" stroke-width="16"/>
+    
+    <!-- Inner Content Masked -->
+    <g mask="url(#circleMask)">
+      <!-- Body -->
+      <path d="M256 280 C340 280 420 330 420 420 V520 H92 V420 C92 330 172 280 256 280 Z" fill="url(#skinGrad)" />
+      
+      <!-- Head -->
+      <circle cx="256" cy="180" r="100" fill="url(#skinGrad)" />
+      
+      <!-- Collar / Clothing Detail -->
+      <path d="M256 280 L300 360 H212 L256 280 Z" fill="white" fill-opacity="0.2"/>
+      
+      <!-- Lighting/Highlight on Head -->
+      <ellipse cx="220" cy="150" rx="40" ry="30" transform="rotate(-45 220 150)" fill="white" fill-opacity="0.2" />
+    </g>
+
+    <!-- Status Indicator (Online) -->
+    <circle cx="420" cy="420" r="40" fill="#10B981" stroke="white" stroke-width="8" filter="drop-shadow(0 4px 4px rgba(0,0,0,0.1))"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headsetMetal" x1="0" y1="0" x2="512" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#93C5FD" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="cushionDark" x1="0" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1F2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <radialGradient id="micLight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 420) rotate(90) scale(30)">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </radialGradient>
+  </defs>
+
+  <g id="support-agent-detailed">
+    <!-- Head Contour (Abstract) -->
+    <path d="M180 480 V350 C180 300 256 280 256 280 C256 280 332 300 332 350 V480" stroke="#E5E7EB" stroke-width="4" fill="none" stroke-dasharray="10 10"/>
+
+    <!-- Headband -->
+    <path d="M80 256 V200 C80 100 160 32 256 32 C352 32 432 100 432 200 V256" stroke="url(#headsetMetal)" stroke-width="32" stroke-linecap="round" fill="none" />
+    <path d="M200 32 L312 32" stroke="white" stroke-width="4" stroke-opacity="0.3" stroke-linecap="round" />
+
+    <!-- Ear Cushions -->
+    <!-- Left -->
+    <rect x="56" y="220" width="48" height="140" rx="24" fill="url(#cushionDark)" stroke="#374151" stroke-width="2"/>
+    <path d="M70 240 V340" stroke="#374151" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Right -->
+    <rect x="408" y="220" width="48" height="140" rx="24" fill="url(#cushionDark)" stroke="#374151" stroke-width="2"/>
+    <path d="M422 240 V340" stroke="#374151" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Mic Boom -->
+    <path d="M432 330 H460 C460 420 400 460 340 460 H320" stroke="#1F2937" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M432 330 H460 C460 420 400 460 340 460 H320" stroke="#4B5563" stroke-width="4" stroke-linecap="round" fill="none" transform="translate(0 -4)"/>
+
+    <!-- Mic Head -->
+    <g transform="translate(290 435)">
+        <rect x="0" y="0" width="50" height="50" rx="15" fill="#1F2937" />
+        <!-- Mesh Pattern -->
+        <circle cx="15" cy="15" r="2" fill="#4B5563"/> <circle cx="25" cy="15" r="2" fill="#4B5563"/> <circle cx="35" cy="15" r="2" fill="#4B5563"/>
+        <circle cx="15" cy="25" r="2" fill="#4B5563"/> <circle cx="25" cy="25" r="2" fill="#4B5563"/> <circle cx="35" cy="25" r="2" fill="#4B5563"/>
+        <circle cx="15" cy="35" r="2" fill="#4B5563"/> <circle cx="25" cy="35" r="2" fill="#4B5563"/> <circle cx="35" cy="35" r="2" fill="#4B5563"/>
+        
+        <!-- Status Light -->
+        <circle cx="42" cy="8" r="6" fill="url(#micLight)" filter="drop-shadow(0 0 4px #10B981)" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rocketFuselage" x1="256" y1="500" x2="256" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F9FAFB" />
+      <stop offset="50%" stop-color="#E5E7EB" />
+      <stop offset="100%" stop-color="#D1D5DB" />
+    </linearGradient>
+    <linearGradient id="finGrad" x1="0" y1="400" x2="200" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4338CA" />
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="256" y1="450" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#EF4444" />
+      <stop offset="100%" stop-color="transparent" />
+    </linearGradient>
+    <filter id="motionBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <!-- Motion Lines (Behind) -->
+  <g stroke="#E0E7FF" stroke-width="4" stroke-linecap="round" opacity="0.6">
+    <line x1="100" y1="450" x2="100" y2="550" />
+    <line x1="412" y1="480" x2="412" y2="580" />
+    <line x1="256" y1="520" x2="256" y2="600" />
+  </g>
+
+  <!-- Rocket Group -->
+  <g transform="translate(0 -20)">
+    <!-- Left Fin -->
+    <path d="M140 350 L80 460 L160 420 Z" fill="url(#finGrad)" stroke="#3730A3" stroke-width="2" />
+    <!-- Right Fin -->
+    <path d="M372 350 L432 460 L352 420 Z" fill="url(#finGrad)" stroke="#3730A3" stroke-width="2" />
+    <!-- Center Fin (Back) -->
+    <path d="M256 380 L256 480 L220 420 Z" fill="#3730A3" />
+
+    <!-- Body -->
+    <path d="M256 40 C160 180 140 350 140 420 C140 440 256 460 256 460 C256 460 372 440 372 420 C372 350 352 180 256 40Z" fill="url(#rocketFuselage)" stroke="#9CA3AF" stroke-width="2"/>
+
+    <!-- Porthole Window -->
+    <circle cx="256" cy="200" r="50" fill="#60A5FA" stroke="#D1D5DB" stroke-width="8" />
+    <circle cx="256" cy="200" r="40" fill="#3B82F6" />
+    <!-- Window Reflection -->
+    <path d="M230 180 Q256 160 280 180" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Flame -->
+    <path d="M220 460 Q256 550 292 460 L270 450 L256 490 L242 450 Z" fill="url(#fireGrad)" />
+  </g>
+</svg>
