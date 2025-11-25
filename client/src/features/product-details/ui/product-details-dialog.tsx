@@ -32,7 +32,7 @@ import { ReachIcon, AutoClickerIcon, QuantaIcon } from "@/shared/ui/custom-icons
 import Image from "next/image";
 import { cn } from "@/shared/lib/utils";
 
-const icons: Record<string, React.ComponentType<any>> = {
+const icons: Record<string, React.ComponentType<{ className?: string }>> = {
   ReachIcon,
   AutoClickerIcon,
   QuantaIcon,

@@ -75,7 +75,7 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       } else {
         set({ step: 'error', isProcessing: false });
       }
-    } catch (error) {
+    } catch {
       set({ step: 'error', isProcessing: false });
     }
   },

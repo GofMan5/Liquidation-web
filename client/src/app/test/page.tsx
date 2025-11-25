@@ -47,7 +47,7 @@ export default function TestPage() {
         return { path, status: "success", responseTime };
       }
       return { path, status: "error", responseTime, error: `HTTP ${res.status}` };
-    } catch (e) {
+    } catch {
       return { path, status: "error", error: "Network error" };
     }
   };

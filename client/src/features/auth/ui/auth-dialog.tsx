@@ -86,19 +86,6 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const { login, register } = useAuth()
   const router = useRouter()
 
-  useEffect(() => {
-    if (!open) {
-      const timer = setTimeout(() => {
-        setView("login")
-        setShowPassword(false)
-        loginForm.reset()
-        registerForm.reset()
-        forgotPasswordForm.reset()
-      }, 300)
-      return () => clearTimeout(timer)
-    }
-  }, [open])
-
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" },
@@ -113,6 +100,19 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: { email: "" },
   })
+
+  useEffect(() => {
+    if (!open) {
+      const timer = setTimeout(() => {
+        setView("login")
+        setShowPassword(false)
+        loginForm.reset()
+        registerForm.reset()
+        forgotPasswordForm.reset()
+      }, 300)
+      return () => clearTimeout(timer)
+    }
+  }, [open, loginForm, registerForm, forgotPasswordForm])
 
   async function onLogin(data: z.infer<typeof loginSchema>) {
     setIsLoading(true)
@@ -141,7 +141,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     }
   }
 
-  async function onForgotPassword(data: z.infer<typeof forgotPasswordSchema>) {
+  async function onForgotPassword(_data: z.infer<typeof forgotPasswordSchema>) {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)

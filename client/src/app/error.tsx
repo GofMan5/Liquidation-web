@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { RefreshCw, Home, AlertTriangle } from "lucide-react";
 import { PageBackground } from "@/widgets/page-background/ui/page-background";
@@ -35,10 +36,10 @@ export default function Error({ error, reset }: ErrorProps) {
             Попробовать снова
           </Button>
           <Button asChild variant="outline" size="lg" className="font-bold rounded-xl border-white/10">
-            <a href="/">
+            <Link href="/">
               <Home className="w-4 h-4 mr-2" />
               На главную
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

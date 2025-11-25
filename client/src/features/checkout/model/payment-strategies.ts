@@ -1,4 +1,4 @@
-import { LucideIcon, Wallet, CreditCard, Bitcoin } from "lucide-react";
+import { LucideIcon, Wallet } from "lucide-react";
 
 export interface PaymentStrategy {
   id: string;

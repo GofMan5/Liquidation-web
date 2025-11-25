@@ -41,4 +41,4 @@ async function bootstrap() {
   const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
   logger.log(`🚀 Server running on http://localhost:${port}`, 'Bootstrap');
 }
-bootstrap();
+void bootstrap();

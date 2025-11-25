@@ -1,4 +1,4 @@
-import { ComponentType, ComponentProps } from "react";
+
 
 export interface ProductFeature {
   title: string;

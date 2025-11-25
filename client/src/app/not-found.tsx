@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import { PageBackground } from "@/widgets/page-background/ui/page-background";
 
 export default function NotFound() {
