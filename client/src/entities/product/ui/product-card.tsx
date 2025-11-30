@@ -55,14 +55,14 @@ export const ProductCard = memo(function ProductCard({ product, className, varia
             
             <div className="mt-auto pt-4">
                 {variant === 'home' ? (
-                    <Button asChild className="w-full bg-foreground text-background hover:bg-primary hover:text-primary-foreground transition-colors shadow-sm font-bold rounded-xl">
+                    <Button asChild variant="outline" className="w-full bg-transparent border-white/20 text-foreground hover:bg-white/10 hover:border-white/30 transition-colors font-medium rounded-xl">
                         <Link href="/products">
                             <Eye className="w-4 h-4 mr-2" />
                             Посмотреть
                         </Link>
                     </Button>
                 ) : (
-                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm font-bold rounded-xl">
+                    <Button asChild variant="outline" className="w-full bg-transparent border-white/20 text-foreground hover:bg-white/10 hover:border-white/30 transition-colors font-medium rounded-xl">
                         <Link href={`/products/${product.id}`}>
                             Подробнее
                             <ArrowRight className="w-4 h-4 ml-2" />

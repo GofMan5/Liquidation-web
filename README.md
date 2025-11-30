@@ -2,102 +2,74 @@
 
 Веб-приложение для продажи цифровых товаров и подписок.
 
-## Стек технологий
+## Технологии
 
-**Frontend:**
+### Frontend
 - Next.js 16 (App Router)
 - React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
 - Framer Motion
-- Shadcn/UI
-- Zustand
+- Radix UI
 
-**Backend:**
-- NestJS
+### Backend
+- NestJS 11
 - Drizzle ORM
-- SQLite
-- Winston (логирование)
+- SQLite (better-sqlite3)
+- Winston
 
-**Архитектура:** Feature-Sliced Design (FSD)
+### Архитектура
+- Frontend: Feature-Sliced Design (FSD)
+- Backend: Clean Architecture
 
-## Быстрый старт
+## Установка
 
 ```bash
-# Установка зависимостей
 npm install
 cd client && npm install
 cd ../server && npm install
-cd ..
+```
 
-# Запуск (frontend + backend)
+## Запуск
+
+```bash
 npm run dev
 ```
 
-- Frontend: http://localhost:3000
-- Backend: http://localhost:4000
+Frontend: http://localhost:3000  
+Backend: http://localhost:4000
 
-## Структура проекта
+## Структура
 
 ```
-├── client/                 # Next.js frontend
-│   └── src/
-│       ├── app/           # Роуты и страницы
-│       ├── entities/      # Бизнес-сущности (product, user, cart)
-│       ├── features/      # Фичи (auth, checkout, cart)
-│       ├── shared/        # UI компоненты и утилиты
-│       ├── views/         # Страницы (home, profile, products)
-│       └── widgets/       # Виджеты (header, footer)
-│
-├── server/                 # NestJS backend
-│   └── src/
-│       ├── application/   # Use cases
-│       ├── domain/        # Entities
-│       ├── infrastructure/# Database, Logger
-│       └── presentation/  # Controllers
-│
-└── package.json           # Корневой package.json
+client/src/
+├── app/           # Next.js роуты
+├── entities/      # Бизнес-сущности
+├── features/      # Фичи
+├── shared/        # UI и утилиты
+├── views/         # Страницы
+└── widgets/       # Виджеты
+
+server/src/
+├── application/   # Use cases
+├── domain/        # Entities
+├── infrastructure/# DB, Logger
+└── presentation/  # Controllers
 ```
-
-## Доступные страницы
-
-| Путь | Описание |
-|------|----------|
-| `/` | Главная |
-| `/products` | Каталог товаров |
-| `/products/[id]` | Страница товара |
-| `/profile` | Личный кабинет |
-| `/admin` | Админ панель |
-| `/faq` | FAQ |
-| `/support` | Поддержка |
-| `/terms` | Условия использования |
-| `/privacy` | Политика конфиденциальности |
-| `/test` | Тестовая страница (dev) |
 
 ## Скрипты
 
-```bash
-npm run dev      # Запуск frontend + backend
-npm run client   # Только frontend
-npm run server   # Только backend
-npm run build    # Сборка проекта
-```
-
-## Интеграция с API
-
-Моки данных находятся в:
-- `client/src/entities/product/lib/mock-data.ts` — товары
-- `client/src/entities/user/lib/mock-data.ts` — пользователь, устройства
-
-Сервисы для замены на реальное API:
-- `client/src/entities/product/api/product-service.ts`
-- `client/src/features/auth/model/auth-provider.tsx`
-- `client/src/features/checkout/model/deposit-store.ts`
+| Команда | Описание |
+|---------|----------|
+| `npm run dev` | Frontend + Backend |
+| `npm run client` | Только frontend |
+| `npm run server` | Только backend |
+| `npm run build` | Сборка |
 
 ## Переменные окружения
 
-**Server (.env):**
-```
+```env
+# server/.env
 PORT=4000
 LOG_LEVEL=http
 ```

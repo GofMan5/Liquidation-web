@@ -20,24 +20,27 @@ export function CartSheet() {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeCart}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
-          />
-          
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-white/10 shadow-2xl z-[70] flex flex-col"
-          >
+    <>
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              key="cart-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeCart}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            />
+            
+            <motion.div
+              key="cart-sheet"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-white/10 shadow-2xl z-[70] flex flex-col"
+            >
             <div className="flex items-center justify-between p-6 border-b border-white/5">
               <h2 className="text-xl font-bold flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5 text-primary" />
@@ -126,9 +129,10 @@ export function CartSheet() {
               </div>
             )}
           </motion.div>
-        </>
-      )}
+          </>
+        )}
+      </AnimatePresence>
       <CheckoutModal />
-    </AnimatePresence>
+    </>
   );
 }

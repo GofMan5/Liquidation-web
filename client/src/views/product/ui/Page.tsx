@@ -205,7 +205,7 @@ export default function ProductPage({ id }: ProductPageProps) {
               <ProductDetailsDialog 
                 product={product} 
                 trigger={
-                  <Button size="lg" className="w-full font-bold rounded-xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 h-12">
+                  <Button size="lg" className="w-full font-bold rounded-xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 h-12 cursor-pointer">
                     <ShoppingCart className="w-5 h-5 mr-2" />
                     Купить
                   </Button>
